@@ -11,3 +11,17 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+
+#icythein {
+  border: 0.3rem solid cornflowerblue;
+  width: 50rem;
+  height: 80rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  display: none;
+}
