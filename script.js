@@ -40,3 +40,5 @@ function animate () {
 
 }
 })
+
+// skeleton completed March 15, 2022
