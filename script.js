@@ -36,14 +36,14 @@ class Game {
     this.enemies.forEach((boobie) => boobie.draw(this.ctx));
   }
   #addNewEnemy() {
-    this.enemies.push(new Enemy(this));
+    this.enemies.push(new Worm(this));
   }
 }
 
 class Enemy {
   constructor(game) {
     this.game = game;
-    console.log(this.game);
+    // console.log(this.game);
     this.x = this.game.width;
     this.y = Math.random() * this.game.height;
     this.width = 100;
@@ -56,7 +56,20 @@ class Enemy {
     if (this.x < 0 - this.width) this.markedForDeath = true;
   }
   draw(ctx) {
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+  }
+}
+
+class Worm extends Enemy {
+  constructor(game) {
+    super(game);
+    this.x = this.game.width;
+    this.y = Math.random() * this.game.height;
+    this.width = 200;
+    this.height = 100;
+    this.image = worm;
+    console.log(this.image);
   }
 }
 
