@@ -10,7 +10,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  background-color: aliceblue;
+  background-color: peachpuff;
 }
 
 #icythein {
@@ -21,6 +21,7 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0.2rem 0.2rem 2rem 0.2rem cornflowerblue;
 }
 
 img {
