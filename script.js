@@ -20,6 +20,7 @@ class Game {
     this.enemies = [];
     this.enemyInterval = 100;
     this.enemyTimer = 0;
+    this.enemyTipi = ["worm", "ghost"];
   }
   update(deltaTime) {
     this.enemies = this.enemies.filter((boobie) => !boobie.markedForDeath);
@@ -36,7 +37,12 @@ class Game {
     this.enemies.forEach((boobie) => boobie.draw(this.ctx));
   }
   #addNewEnemy() {
-    this.enemies.push(new Worm(this));
+    const randomEnemy =
+      this.enemyTipi[Math.floor(Math.random() * this.enemyTipi.length)];
+    // console.log(randomEnemy);
+    if (randomEnemy == "worm") this.enemies.push(new Worm(this));
+    else if (randomEnemy == "ghost") this.enemies.push(new Ghost(this));
+    // this.enemies.sort((a, b) => a.y - b.y);
   }
 }
 
@@ -77,9 +83,22 @@ class Worm extends Enemy {
     this.width = this.spriteWidth / 2;
     this.height = this.spriteHeight / 2;
     this.x = this.game.width;
-    this.y = Math.random() * this.game.height;
+    this.y = this.game.height - this.height;
     this.image = worm;
     this.vx = Math.random() * 0.1 + 0.1;
+  }
+}
+class Ghost extends Enemy {
+  constructor(game) {
+    super(game);
+    this.spriteWidth = 261;
+    this.spriteHeight = 209;
+    this.width = this.spriteWidth / 2;
+    this.height = this.spriteHeight / 2;
+    this.x = this.game.width;
+    this.y = Math.random() * this.game.height * 0.6;
+    this.image = ghost;
+    this.vx = Math.random() * 0.2 + 0.1;
   }
 }
 
